@@ -13,9 +13,11 @@ const BookRow = ({ book, index }) => {
       </tr>
   )};
 
-const HardcoverFiction = () => {
+const HardcoverFiction = ({books}) => {
 
     return (
+      <div className="container">
+        <h1>Top 15 in Hardcover Fiction</h1>
         <table className="table">
         <thead>
         <tr>
@@ -33,6 +35,7 @@ const HardcoverFiction = () => {
           ))}
         </tbody>
       </table>
+      </div>
     )
 };
 

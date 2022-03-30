@@ -10,14 +10,14 @@ return (
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item active">
-          <a className="nav-link" href="./components.Welcome.jsx">Welcome <span className="sr-only"></span></a>
+          <a className="nav-link" href="/Welcome">Welcome <span className="sr-only"></span></a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="./components.BookRow.jsx">Top Hardcover Fiction</a>
+          <a className="nav-link" href="/HardcoverFiction">Top Hardcover Fiction</a>
         </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#/blog">Top Paperback Fiction</a>
-        </li>
+        {/* <li className="nav-item">
+          <a className="nav-link" href="#/PaperbackFiction">Top Paperback Fiction</a>
+        </li> */}
        
       </ul>
     </div>
