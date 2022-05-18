@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import { Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
-import HardcoverFiction from './components/HardcoverFiction';
+import BookDisplayTable from './components/BookDisplayTable';
 import Welcome from './components/Welcome';
 
 
@@ -29,8 +29,7 @@ function App() {
 
       const hardcoverFictionBooksArray= [];
       for(let i= 0; i < booksList.length; i++){
-        let newBook=[booksList[i].title, booksList[i].author, booksList[i].description, booksList[i].book_image];
-        // console.log(booksList[i].title, booksList[i].author, booksList[i].description);
+        let newBook= {title: booksList[i].title, author: booksList[i].author, description: booksList[i].description, image: booksList[i].book_image};
         hardcoverFictionBooksArray.push(newBook);
       };
         setHardcoverBooks(hardcoverFictionBooksArray);
@@ -41,12 +40,10 @@ function App() {
         const response = await fetch(url2);
         let data = await response.json();
         let booksList = data.results.books;  
-        // console.log(booksList);
 
       const paperbackFictionBooksArray= [];
         for(let i= 0; i < booksList.length; i++){
-        let newBook=[booksList[i].title, booksList[i].author, booksList[i].description, booksList[i].book_image];
-        // console.log(booksList[i].title, booksList[i].author, booksList[i].description);
+        let newBook= {title: booksList[i].title, author: booksList[i].author, description: booksList[i].description, image: booksList[i].book_image};
         paperbackFictionBooksArray.push(newBook);
       };
         setPaperbackBooks(paperbackFictionBooksArray);
@@ -61,13 +58,12 @@ function App() {
 
         const nonfictionBooksArray= [];
           for(let i= 0; i < booksList.length; i++){
-          let newBook=[booksList[i].title, booksList[i].author, booksList[i].description, booksList[i].book_image];
-          // console.log(booksList[i].title, booksList[i].author, booksList[i].description);
+          let newBook= {title: booksList[i].title, author: booksList[i].author, description: booksList[i].description, image: booksList[i].book_image};
           nonfictionBooksArray.push(newBook);
         };
         setNonfictionBooks(nonfictionBooksArray);
       };
-      // console.log(nonfictionBooks)
+      console.log(nonfictionBooks)
 
   return (
     <div className="App">
@@ -76,9 +72,9 @@ function App() {
       <div className='container'>
         <Routes>
           <Route path="Welcome" element={<Welcome />} />
-          <Route path="HardcoverFiction" element={<HardcoverFiction books={hardcoverBooks}/>} />
-          <Route path="PaperbackFiction" element={<HardcoverFiction books={paperbackBooks}/>} />
-          <Route path="Nonfiction" element={<HardcoverFiction books={nonfictionBooks}/>} />
+          <Route path="HardcoverFiction" element={<BookDisplayTable books={hardcoverBooks}/>} />
+          <Route path="PaperbackFiction" element={<BookDisplayTable books={paperbackBooks}/>} />
+          <Route path="Nonfiction" element={<BookDisplayTable books={nonfictionBooks}/>} />
         </Routes>
       </div>
     </div>

@@ -4,16 +4,16 @@ const BookRow = ({ book, index }) => {
 
     return(
       
-      <tr onClick={()=> alert(`add ${book[0]} to reading list`)}>
+       <tr onClick={()=> alert(`add ${book[0]} to reading list`)}>
         <th scope="row">{index + 1}</th>
-        <td >{book[0]}</td>
-        <td>{book[1]}</td>
-        <td>{book[2]}</td>
-        <td><img src={book[3]} alt=""  height="135" width="85"></img></td>
+        <td >{book.title}</td>
+        <td>{book.author}</td>
+        <td>{book.description}</td>
+        <td><img src={book.image} alt=""  height="135" width="85"></img></td>
       </tr>
   )};
 
-const HardcoverFiction = ({books}) => {
+const BookDisplayTable = ({books}) => {
 
     return (
       <div className="container">
@@ -39,4 +39,4 @@ const HardcoverFiction = ({books}) => {
     )
 };
 
-export default HardcoverFiction;
+export default BookDisplayTable;
